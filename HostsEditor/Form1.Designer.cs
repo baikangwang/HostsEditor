@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fmEditor));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnClose = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.dgvItems = new System.Windows.Forms.DataGridView();
             this.cmdgvItems = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -63,16 +63,16 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // btnSave
+            // btnEdit
             // 
-            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(477, 410);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 2;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEdit.Location = new System.Drawing.Point(477, 410);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(75, 23);
+            this.btnEdit.TabIndex = 2;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnRefresh
             // 
@@ -97,9 +97,6 @@
             this.dgvItems.RowHeadersVisible = false;
             this.dgvItems.Size = new System.Drawing.Size(625, 383);
             this.dgvItems.TabIndex = 4;
-            this.dgvItems.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvItems_CellContentClick);
-            this.dgvItems.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvItems_CellEndEdit);
-            this.dgvItems.UserAddedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.dgvItems_UserAddedRow);
             // 
             // cmdgvItems
             // 
@@ -122,7 +119,7 @@
             this.ClientSize = new System.Drawing.Size(641, 441);
             this.Controls.Add(this.dgvItems);
             this.Controls.Add(this.btnRefresh);
-            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -139,7 +136,7 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.DataGridView dgvItems;
         private System.Windows.Forms.ContextMenuStrip cmdgvItems;

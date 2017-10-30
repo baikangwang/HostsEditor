@@ -40,7 +40,7 @@ namespace HostsEditor
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            SaveItems();
+            OpenFile();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -120,13 +120,13 @@ namespace HostsEditor
             this.dgvItems.Rows.Clear();
             this.dgvItems.Columns.Clear();
 
-            var colDelete = new DataGridViewButtonColumn();
+            // var colDelete = new DataGridViewButtonColumn();
             var colIp = new DataGridViewTextBoxColumn();
             var colHost = new DataGridViewTextBoxColumn();
             var colComments = new DataGridViewTextBoxColumn();
 
             dgvItems.Columns.AddRange(new DataGridViewColumn[] {
-            colDelete,
+            //colDelete,
             colIp,
             colHost,
             colComments});
@@ -134,8 +134,8 @@ namespace HostsEditor
             // 
             // colDelete
             // 
-            colDelete.HeaderText = "";
-            colDelete.Width = 50;
+            //colDelete.HeaderText = "";
+            //colDelete.Width = 50;
             // 
             // colIp
             // 
@@ -169,9 +169,9 @@ namespace HostsEditor
                 {
                     // add comment row if the item is comments
                     int offset = 0;
-                    for (int j = offset; j < offset + 4; j++)
+                    for (int j = offset; j < offset + 3; j++)
                     {
-                        CommentsCell commentsCell = new CommentsCell(offset, offset + 3, Color.Green);
+                        CommentsCell commentsCell = new CommentsCell(offset, offset + 2, Color.Green);
                         if (j == offset)
                             commentsCell.Value = item.Comments;
                         row.Cells[j] = commentsCell;
@@ -181,19 +181,19 @@ namespace HostsEditor
                 else
                 {
                     // init delete button
-                    var deleteButton = new DataGridViewButtonCell();
-                    deleteButton.Value = "X";
-                    row.Cells[0] = deleteButton;
-                    row.Cells[1].Value = item.IP;
-                    row.Cells[2].Value = item.Host;
-                    row.Cells[3].Value = item.Comments;
+                    //var deleteButton = new DataGridViewButtonCell();
+                    //deleteButton.Value = "X";
+                    //row.Cells[0] = deleteButton;
+                    row.Cells[0].Value = item.IP;
+                    row.Cells[1].Value = item.Host;
+                    row.Cells[2].Value = item.Comments;
                 }
             }
         }
 
-        private void SaveItems()
+        private void OpenFile()
         {
-            ItemsAdapter.Save(ItemsObj);
+            // ItemsAdapter.Save(ItemsObj);
 
             // show the result
             Process.Start("notepad", ItemsAdpter.HOSTFILE);

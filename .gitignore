@@ -3,3 +3,5 @@
 /HostEditor.Test/obj
 /HostsEditor/bin
 /HostsEditor/obj
+*.csproj.user
+*.v12.suo
