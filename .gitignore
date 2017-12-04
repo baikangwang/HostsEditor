@@ -1,7 +1,8 @@
-/.svn
-/HostEditor.Test/bin
-/HostEditor.Test/obj
-/HostsEditor/bin
-/HostsEditor/obj
+.svn
+.vs
+HostEditor.Test/bin
+HostEditor.Test/obj
+HostsEditor/bin
+HostsEditor/obj
 *.csproj.user
 *.v12.suo
