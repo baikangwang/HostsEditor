@@ -5,6 +5,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
 
@@ -113,6 +114,17 @@ namespace HostsEditor
             dgvItems.AllowUserToOrderColumns = false;
             dgvItems.AllowUserToResizeColumns = false;
             dgvItems.AllowUserToResizeRows = false;
+
+            dgvItems.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing; //or even better .DisableResizing. Most time consumption enum is DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
+            // set it to false if not needed
+            dgvItems.RowHeadersVisible = false;
+            // Double buffering can make DGV slow in remote desktop
+            // https://10tec.com/articles/why-datagridview-slow.aspx (Slow DataGridView rendering and scrolling)
+            Type dgvType = this.dgvItems.GetType();
+            PropertyInfo pi = dgvType.GetProperty("DoubleBuffered",
+              BindingFlags.Instance | BindingFlags.NonPublic);
+            pi.SetValue(dgvItems, true, null);
+
         }
 
         private void RedrawGrid()
